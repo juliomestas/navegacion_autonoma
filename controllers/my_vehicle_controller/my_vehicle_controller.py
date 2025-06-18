@@ -77,7 +77,7 @@ def main():
     camera.enable(timestep)
 
     speed = 0.0
-    max_speed = 60.0
+    max_speed = 80.0
     steering_angle = 0.0
     last_angle = 0.0
     last_capture_time = time.time()
