@@ -38,7 +38,7 @@ def get_image(camera):
     height = rgb_image.shape[0]
     cutoff = int(height * 0.3)
     rgb_image[:cutoff, :] = 0
-    return apply_trapezoid_mask(rgb_image)
+    return rgb_image; #apply_trapezoid_mask(rgb_image)
 
 def greyscale_cv2(image):
     return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -121,8 +121,16 @@ def main():
         else:
             steering_angle = 0.0
 
-        steering_angle = max(-0.2, min(0.2, steering_angle))
+        # Limitar el ángulo de giro dependiendo de la velocidad
+        if speed < 30.0:
+            max_angle = 0.5
+        else:
+            max_angle = 0.2
 
+        # Restringir el ángulo de giro
+        steering_angle = max(-max_angle, min(max_angle, steering_angle))
+
+        # Aplicar valores al vehículo
         driver.setSteeringAngle(steering_angle)
         driver.setCruisingSpeed(speed)
 
