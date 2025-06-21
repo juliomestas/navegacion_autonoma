@@ -23,7 +23,7 @@ driver.setCruisingSpeed(cruising_speed)
 
 # Cargar modelo entrenado
 try:
-    model = load_model("model_circuito.h5", compile=False)
+    model = load_model("model_balanceado_maxpool_gray_blur.h5", compile=False)
 except Exception as e:
     print(f"Error cargando modelo: {e}")
     exit()
@@ -33,9 +33,13 @@ def preprocess(img):
     img = np.frombuffer(img, np.uint8).reshape((camera.getHeight(), camera.getWidth(), 4))[:, :, :3].copy()
     height = img.shape[0]
     img[:int(height * 0.3), :] = 0  # Recorte superior
-    img = cv2.resize(img, (200, 66))
-    img = img.astype(np.float32) / 255.0
-    return img.reshape(1, 66, 200, 3)
+
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)        # Escala de grises
+    img = cv2.GaussianBlur(img, (5, 5), 0)             # Blur
+    img = cv2.resize(img, (200, 66))                   # Resize
+    img = img.astype(np.float32) / 255.0               # Normalizar
+    img = np.expand_dims(img, axis=-1)                 # (66,200) → (66,200,1)
+    return img.reshape(1, 66, 200, 1)                   # Batch shape
 
 # Bucle principal del controlador
 while robot.step() != -1:

@@ -125,8 +125,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.3378132312475117 -0.04760573781293824 -0.9400084651328418 3.404997145416704
-  position 315.8134468813336 74.92373949355887 191.62364366585194
+  orientation -0.6632639642030641 -0.12867891334762557 0.7372398870444481 3.4266695207813154
+  position -7.270568819548336 -19.683426662862825 188.65666756869535
   near 1
   follow "vehicle"
   followType "Mounted Shot"
@@ -218,6 +218,9 @@ StraightRoadSegment {
   rightBorder FALSE
   leftBorder FALSE
   length 69
+}
+Pedestrian {
+  name "pedestrian(3)"
 }
 CurvedRoadSegment {
   translation -64.5 -64.5 0.02
@@ -880,9 +883,38 @@ CurvedRoadSegment {
   curvatureRadius 40.5
 }
 DEF WEBOTS_VEHICLE0 BmwX5 {
-  translation 25.76 237.72 0.4
-  rotation 0 0 1 3.14159
-  controller "<extern>"
+  hidden position_0_0 -0.0007481329814440571
+  hidden position2_0_0 3782.7197421833966
+  hidden position_0_1 5.301031151174981e-05
+  hidden position2_0_1 3810.1446616173857
+  hidden position_0_2 3573.1824668903637
+  hidden position_0_3 3579.7945053125195
+  hidden position_0_9 0.5235876440193244
+  hidden linearVelocity_0 -7.16575205621701 4.254788779811375 0.0029607988323246447
+  hidden angularVelocity_0 0.00017054623525219938 -0.003032408292932642 0.0010872345357106205
+  hidden rotation_1 0.00037406471469729713 -0.9999952054731711 0.003073939859422802 0.24218841114621467
+  hidden linearVelocity_1 -7.16435572727309 4.248070959514778 0.0006994370110371424
+  hidden angularVelocity_1 -11.363609560206555 -19.165128304854196 0.002443907847519219
+  hidden rotation_2 2.6505155751857623e-05 0.9999999996142596 -8.304067206639497e-06 2.534365466776432
+  hidden linearVelocity_2 -7.167129309464624 4.259185253140108 0.0014023562542565533
+  hidden angularVelocity_2 -11.381367817706534 -19.16006200471638 0.011609094134336435
+  hidden rotation_3 0 -1 0 4.3332124123585665
+  hidden linearVelocity_3 -7.164340648103403 4.25452667444185 0.0009596691595390388
+  hidden angularVelocity_3 -11.37701984837304 -19.153366507706032 0.011359861281703413
+  hidden rotation_4 0 -1 0 1.6211197798447872
+  hidden linearVelocity_4 -7.1657589628361436 4.255582387998092 0.005330817130422419
+  hidden angularVelocity_4 -11.379397530116723 -19.15742545216394 0.011574473543383852
+  hidden translation_26 0.00588647326658398 1.0600260175302805 0.006607265911472315
+  hidden rotation_26 0.7466598432279096 0 -0.6652060421485012 0.5235876440193244
+  translation -18.520223413841094 183.77392683471538 0.307255006887594
+  rotation -0.0029089840594303043 0.0005941488660980851 -0.9999955923897199 -2.6055439598382337
+  controller "radar_controller"
+  sensorsSlotFront [
+    Radar {
+      translation 3.85 0 0.45
+      name "front_radar"
+    }
+  ]
   sensorsSlotTop [
     Camera {
       translation 0.72 0 -0.05
@@ -921,6 +953,7 @@ DEF WEBOTS_VEHICLE0 BmwX5 {
     Gyro {
     }
     Display {
+      name "display_image"
       width 200
       height 150
     }
@@ -931,7 +964,7 @@ GenericTrafficLight {
   startGreen FALSE
   greenTime 10
   redTime 10
-  state "green"
+  state "red"
 }
 CrossRoadsTrafficLight {
   translation 45 -45 0
@@ -1578,14 +1611,20 @@ SpeedLimitSign {
   ]
 }
 TrafficCone {
-  translation 33.9741 -53.7608 0
+  hidden linearVelocity_0 -542.5298470234472 1148.0223880488657 1601.7986495508821
+  hidden angularVelocity_0 -6146.403695312281 2906.1383388487016 -7333.217681872348
+  translation -37655.63612108316 78821.14375572187 133254.0329041363
+  rotation -0.8706796654599944 0.39602332451843475 -0.2916889552105779 -2.093726033243362
   physics Physics {
     density -1
     mass 1
   }
 }
 TrafficCone {
-  translation 33.9697 -51.435 0
+  hidden linearVelocity_0 1.2951274956570235e-06 3.9931194367632733e-07 -2.1090985374030364e-06
+  hidden angularVelocity_0 -2.4157525369432275e-06 7.835227398750236e-06 -5.4691006670795e-12
+  translation 33.94551382856831 -51.420676715376224 -0.004101751734019277
+  rotation 0.006795130889496082 0.001029792021331236 -0.9999763825834025 2.8413525686281376
   name "traffic cone(1)"
   physics Physics {
     density -1
@@ -1593,7 +1632,10 @@ TrafficCone {
   }
 }
 TrafficCone {
-  translation 33.9536 -48.9544 0
+  hidden linearVelocity_0 -8.673440759484249e-07 3.757079533146054e-09 -1.3497827104629348e-06
+  hidden angularVelocity_0 -2.2725869246662336e-08 -5.247241047568149e-06 -3.522460408438835e-12
+  translation 33.96493055614107 -48.96530664201019 -0.004101941182766383
+  rotation 0.0012636348222213045 0.9740841426762997 -0.22618241800284597 0.013951761201900744
   name "traffic cone(2)"
   physics Physics {
     density -1
@@ -1601,7 +1643,10 @@ TrafficCone {
   }
 }
 TrafficCone {
-  translation 33.7172 -45.7234 0
+  hidden linearVelocity_0 -4.136410969653037e-06 4.8232492488977864e-09 -6.436938253386869e-06
+  hidden angularVelocity_0 -2.9162804201324377e-08 -2.502421381215625e-05 -1.6083858684274152e-11
+  translation 33.7171431011769 -45.72340081641923 -0.004100671939505668
+  rotation -0.00028517308371988167 0.9999996753450612 0.000753648515228891 0.013595261432332357
   name "traffic cone(3)"
   physics Physics {
     density -1
@@ -1905,26 +1950,1426 @@ HouseWithGarage {
   translation -150.36 192.51 0
 }
 Pedestrian {
+  hidden translation_2 -0.12309055577982392 5.551115123125783e-17 0.03699501252112558
+  hidden rotation_2 0 0.9999999999999999 0 0.6890909090908642
+  hidden translation_3 -0.039100474910101365 1.1102230246251565e-16 0.008484470118961585
+  hidden rotation_3 0 -1 0 0.40909090909102797
+  hidden translation_4 0.07022045457198291 -5.551115123125783e-17 -0.013554133226845566
+  hidden rotation_4 0 1 0 0.19272727272724355
+  hidden translation_5 0.12080535955553269 -1.1102230246251565e-16 0.05183358616672504
+  hidden rotation_5 0 -1 0 0.7054545454544041
+  hidden translation_6 -0.022892299402958782 1.1102230246251565e-16 0.006991373741596252
+  hidden rotation_6 0 -1 0 0.24363636363650157
+  hidden translation_7 -0.008417405871824681 -2.7755575615628914e-17 0.0006998323299010067
+  hidden rotation_7 0 -0.9999999999999999 0 0.022727272727373113
+  hidden translation_8 -0.21274763113930067 2.7755575615628914e-17 -0.051487915916026056
+  hidden rotation_8 0 -0.9999999999999999 0 0.7400000000001636
+  hidden translation_9 0.4244429931334237 5.551115123125783e-17 -0.15009708478157358
+  hidden rotation_9 0 0.9999999999999999 0 0.6009090909095448
+  hidden translation_10 -0.38658848941994206 8.326672684688674e-17 -0.034112462752694306
+  hidden rotation_10 0 -1 0 0.33363636363625626
+  hidden translation_11 0.10985921611458505 -8.326672684688674e-17 -0.037050926326936684
+  hidden rotation_11 0 1 0 0.38545454545448643
+  hidden translation_12 0.18643160904783926 2.7755575615628914e-17 -0.03085162099544947
+  hidden rotation_12 0 1 0 0.24909090909086362
+  hidden translation_13 -0.029681146543348753 0 0.001964164190078721
+  hidden rotation_13 0 -0.9999999999999999 0 0.02545454545436555
+  hidden translation_14 -0.03020551081234779 0 0.0020550083228224048
+  hidden rotation_14 0 1 0 0.08181818181814687
+  translation 0 -184.32000000000005 1.2500000000000409
+  rotation 0 0 1 1.5707963267948966
   controllerArgs [
     "--trajectory= 0 240, 0 -240"
     "--speed=2.5 "
   ]
+  rightLegAngle 0.38545454545448593
+  rightLowerLegAngle 0.24909090909086445
+  rightFootAngle -0.025454545454363146
+  leftLegAngle -0.7400000000001636
+  leftLowerLegAngle 0.6009090909095448
+  leftFootAngle -0.3336363636362557
+  rightArmAngle -0.7054545454544041
+  rightLowerArmAngle -0.24363636363650126
+  rightHandAngle -0.022727272727365744
+  leftArmAngle 0.6890909090908645
+  leftLowerArmAngle -0.40909090909102813
+  leftHandAngle 0.19272727272724297
+  headAngle 0.08181818181814833
 }
 Pedestrian {
-  translation 1 0 2.27
+  hidden translation_2 -0.12309055577982392 5.551115123125783e-17 0.03699501252112558
+  hidden rotation_2 0 0.9999999999999999 0 0.6890909090908642
+  hidden translation_3 -0.039100474910101365 1.1102230246251565e-16 0.008484470118961585
+  hidden rotation_3 0 -1 0 0.40909090909102797
+  hidden translation_4 0.07022045457198291 -5.551115123125783e-17 -0.013554133226845566
+  hidden rotation_4 0 1 0 0.19272727272724355
+  hidden translation_5 0.12080535955553269 -1.1102230246251565e-16 0.05183358616672504
+  hidden rotation_5 0 -1 0 0.7054545454544041
+  hidden translation_6 -0.022892299402958782 1.1102230246251565e-16 0.006991373741596252
+  hidden rotation_6 0 -1 0 0.24363636363650157
+  hidden translation_7 -0.008417405871824681 -2.7755575615628914e-17 0.0006998323299010067
+  hidden rotation_7 0 -0.9999999999999999 0 0.022727272727373113
+  hidden translation_8 -0.21274763113930067 2.7755575615628914e-17 -0.051487915916026056
+  hidden rotation_8 0 -0.9999999999999999 0 0.7400000000001636
+  hidden translation_9 0.4244429931334237 5.551115123125783e-17 -0.15009708478157358
+  hidden rotation_9 0 0.9999999999999999 0 0.6009090909095448
+  hidden translation_10 -0.38658848941994206 8.326672684688674e-17 -0.034112462752694306
+  hidden rotation_10 0 -1 0 0.33363636363625626
+  hidden translation_11 0.10985921611458505 -8.326672684688674e-17 -0.037050926326936684
+  hidden rotation_11 0 1 0 0.38545454545448643
+  hidden translation_12 0.18643160904783926 2.7755575615628914e-17 -0.03085162099544947
+  hidden rotation_12 0 1 0 0.24909090909086362
+  hidden translation_13 -0.029681146543348753 0 0.001964164190078721
+  hidden rotation_13 0 -0.9999999999999999 0 0.02545454545436555
+  hidden translation_14 -0.03020551081234779 0 0.0020550083228224048
+  hidden rotation_14 0 1 0 0.08181818181814687
+  translation 124.32000000000005 0 1.2500000000000409
+  rotation 0 0 1 3.141592653589793
   name "pedestrian(1)"
   controllerArgs [
     "--trajectory= -220 0, 220 0"
     "--speed=2.5 "
   ]
   shirtColor 0.878431 0.105882 0.141176
+  rightLegAngle 0.38545454545448593
+  rightLowerLegAngle 0.24909090909086445
+  rightFootAngle -0.025454545454363146
+  leftLegAngle -0.7400000000001636
+  leftLowerLegAngle 0.6009090909095448
+  leftFootAngle -0.3336363636362557
+  rightArmAngle -0.7054545454544041
+  rightLowerArmAngle -0.24363636363650126
+  rightHandAngle -0.022727272727365744
+  leftArmAngle 0.6890909090908645
+  leftLowerArmAngle -0.40909090909102813
+  leftHandAngle 0.19272727272724297
+  headAngle 0.08181818181814833
 }
 Pedestrian {
-  translation 2 0 3.27
+  hidden translation_2 -0.12309055577982392 5.551115123125783e-17 0.03699501252112558
+  hidden rotation_2 0 0.9999999999999999 0 0.6890909090908642
+  hidden translation_3 -0.039100474910101365 1.1102230246251565e-16 0.008484470118961585
+  hidden rotation_3 0 -1 0 0.40909090909102797
+  hidden translation_4 0.07022045457198291 -5.551115123125783e-17 -0.013554133226845566
+  hidden rotation_4 0 1 0 0.19272727272724355
+  hidden translation_5 0.12080535955553269 -1.1102230246251565e-16 0.05183358616672504
+  hidden rotation_5 0 -1 0 0.7054545454544041
+  hidden translation_6 -0.022892299402958782 1.1102230246251565e-16 0.006991373741596252
+  hidden rotation_6 0 -1 0 0.24363636363650157
+  hidden translation_7 -0.008417405871824681 -2.7755575615628914e-17 0.0006998323299010067
+  hidden rotation_7 0 -0.9999999999999999 0 0.022727272727373113
+  hidden translation_8 -0.21274763113930067 2.7755575615628914e-17 -0.051487915916026056
+  hidden rotation_8 0 -0.9999999999999999 0 0.7400000000001636
+  hidden translation_9 0.4244429931334237 5.551115123125783e-17 -0.15009708478157358
+  hidden rotation_9 0 0.9999999999999999 0 0.6009090909095448
+  hidden translation_10 -0.38658848941994206 8.326672684688674e-17 -0.034112462752694306
+  hidden rotation_10 0 -1 0 0.33363636363625626
+  hidden translation_11 0.10985921611458505 -8.326672684688674e-17 -0.037050926326936684
+  hidden rotation_11 0 1 0 0.38545454545448643
+  hidden translation_12 0.18643160904783926 2.7755575615628914e-17 -0.03085162099544947
+  hidden rotation_12 0 1 0 0.24909090909086362
+  hidden translation_13 -0.029681146543348753 0 0.001964164190078721
+  hidden rotation_13 0 -0.9999999999999999 0 0.02545454545436555
+  hidden translation_14 -0.03020551081234779 0 0.0020550083228224048
+  hidden rotation_14 0 1 0 0.08181818181814687
+  translation 159.87404798288185 -167.48709788682862 1.2500000000000409
+  rotation 0 0 1 -0.8086497862079112
   name "pedestrian(2)"
   controllerArgs [
     "--trajectory= -210 220, 210 -220"
     "--speed=2.5 "
   ]
   shirtColor 0.101961 0.372549 0.705882
+  rightLegAngle 0.38545454545448593
+  rightLowerLegAngle 0.24909090909086445
+  rightFootAngle -0.025454545454363146
+  leftLegAngle -0.7400000000001636
+  leftLowerLegAngle 0.6009090909095448
+  leftFootAngle -0.3336363636362557
+  rightArmAngle -0.7054545454544041
+  rightLowerArmAngle -0.24363636363650126
+  rightHandAngle -0.022727272727365744
+  leftArmAngle 0.6890909090908645
+  leftLowerArmAngle -0.40909090909102813
+  leftHandAngle 0.19272727272724297
+  headAngle 0.08181818181814833
+}
+DEF SUMO_VEHICLE0 Solid {
+  translation 59.27271373794181 -42.57067335156397 0.36
+  rotation 0 0 -1 3.0916697805153377
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "0"
+  linearVelocity -8.506609170106572 -0.46541854262695637 0
+  angularVelocity 0 0 0.01570731215418064
+}
+DEF SUMO_VEHICLE1 Solid {
+  translation -99.57696620880944 -184.81659571846367 0.36
+  rotation 0 0 -1 3.141554842117147
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "133"
+  linearVelocity -16.66297542073366 -0.0006300516285762114 0
+}
+DEF SUMO_VEHICLE2 Solid {
+  translation -36.94 59.91927775130728 0.358
+  rotation 0 0 1 1.5707963267948966
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "161"
+  linearVelocity 0 2.6088478562260775 0
+}
+DEF SUMO_VEHICLE3 Solid {
+  translation 107.69 183.09456428515867 0.358
+  rotation 0 0 1 1.5707963267948966
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "58"
+  linearVelocity 0 15.644669178695096 0
+}
+DEF SUMO_VEHICLE4 Solid {
+  translation 102.31 157.06016730958106 0.358
+  rotation 0 0 -1 1.5707963267948966
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "59"
+  linearVelocity 0 -13.646353746937336 0
+}
+DEF SUMO_VEHICLE5 Solid {
+  translation 35.41437425201061 -36.97578947978364 0.36
+  rotation 0 0 0.9999999999999999 3.1274256458649634
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "96"
+  linearVelocity -13.721323421322289 0.13400567116484297 0
+  angularVelocity 0 0 0.055529882634717254
+}
+DEF SUMO_VEHICLE6 Solid {
+  translation -128.4521106719235 233.6975953090429 0.36
+  rotation 0 0 1 3.1415532633517134
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "57"
+  linearVelocity -11.133291334212103 0.000438543007703629 0
+  angularVelocity 0 0 8.881784197001252e-15
+}
+DEF SUMO_VEHICLE7 Solid {
+  translation 125.45356613557435 95.64154989778372 0.317
+  rotation 0 0 1 3.0923259269868084
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "7"
+  linearVelocity -0.0004376689932428235 2.1579981108743596e-05 0
+  angularVelocity 0 0 -6.24389429049188e-12
+}
+DEF SUMO_VEHICLE8 Solid {
+  translation -53.06 31.488033549085667 0.317
+  rotation 0 0 -1 1.5707963267948966
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "166"
+  linearVelocity 0 -0.9870760658373001 0
+}
+DEF SUMO_VEHICLE9 Solid {
+  translation 39.26837764885125 -53.16270168211602 0.358
+  rotation 0 0 -0.9999999999999999 0.020824997557659604
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "139"
+  linearVelocity 13.090117335507898 -0.26789077337781464 0
+  angularVelocity 0 0 0.002667188486906724
+}
+DEF SUMO_VEHICLE10 Solid {
+  translation -208.1911726699383 212.4095266484093 0.4
+  rotation 0 0 1 0.8533123539375234
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "116"
+  linearVelocity 9.52506988214708 10.915406515687778 0
+  angularVelocity 0 0 -8.881784197001252e-15
+}
+DEF SUMO_VEHICLE11 Solid {
+  translation 153.10468533354626 77.00482208414994 0.358
+  rotation 0 0 -0.9999999999999999 0.860748935484959
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "152"
+  linearVelocity 9.880257249334221 -11.827783331451371 0
+  angularVelocity 0 0 -0.3727099072034746
+}
+DEF SUMO_VEHICLE12 Solid {
+  translation -56.96924417409487 -102.31 0.374
+  rotation 0 0 -1 3.141592653589793
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "155"
+  linearVelocity -13.97732690241611 0 0
+}
+DEF SUMO_VEHICLE13 Solid {
+  translation -175.27968159034546 239.0694398582578 0.358
+  rotation 0 0 1 3.1415532633517134
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "146"
+  linearVelocity -13.541026943192946 0.0005333842888433082 0
+  angularVelocity 0 0 5.773159728050814e-14
+}
+DEF SUMO_VEHICLE14 Solid {
+  translation 11.341182071925285 -179.44240174000558 0.36
+  rotation 0 0 -1 3.141554842117147
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "14"
+  linearVelocity -15.979441141813027 -0.0006042061913547059 0
+}
+DEF SUMO_VEHICLE15 Solid {
+  translation -31.69874813899692 239.06378417095914 0.285
+  rotation 0 0 1 3.1415532633517134
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "80"
+  linearVelocity -10.828670814460395 0.0004265439325479292 0
+  angularVelocity 0 0 7.105427357601002e-14
+}
+DEF SUMO_VEHICLE16 Solid {
+  translation 172.96705392143664 -99.0257281065233 0.4
+  rotation 0 0 1 1.5339865669791242
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "93"
+  linearVelocity 0.3257398572435477 13.535787076304686 0
+  angularVelocity 0 0 0.13265075657869385
+}
+DEF SUMO_VEHICLE17 Solid {
+  translation -211.0028226815903 206.6202857714183 0.317
+  rotation 0 0 -1 2.1560134222264553
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "141"
+  linearVelocity -7.825850865457795 -11.809920396963776 0
+}
+DEF SUMO_VEHICLE18 Solid {
+  translation -41.984402220462826 233.69418932533267 0.358
+  rotation 0 0 1 3.1415532633517134
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "118"
+  linearVelocity -13.968958710046593 0.000550240623482523 0
+  angularVelocity 0 0 -7.105427357601002e-14
+}
+DEF SUMO_VEHICLE19 Solid {
+  translation -53.15237456383262 -107.69 0.36
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "145"
+  linearVelocity 12.214116156331583 0 0
+}
+DEF SUMO_VEHICLE20 Solid {
+  translation 56.20050033831528 95.51009256478898 0.285
+  rotation 0 0 -1 0.4871150861237171
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "110"
+  linearVelocity 0.003979707343688688 -0.0021439328972405747 0
+  angularVelocity 0 0 0.00010956611725454479
+}
+DEF SUMO_VEHICLE21 Solid {
+  translation 96.94 127.03599383649897 0.358
+  rotation 0 0 -1 1.5707963267948966
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "159"
+  linearVelocity 0 -15.157187981179163 0
+}
+DEF SUMO_VEHICLE22 Solid {
+  translation 27.94373272541754 152.64174970552696 0.358
+  rotation 0 0 -1 1.0317412577714946
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "157"
+  linearVelocity 6.855986846619474 -12.152300734350945 0
+  angularVelocity 0 0 -0.4059441971032696
+}
+DEF SUMO_VEHICLE23 Solid {
+  translation -198.27525150848209 226.34784833894525 0.358
+  rotation 0 0 1 0.9873228937078123
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "132"
+  linearVelocity 7.669205401410579 11.617470272651644 0
+  angularVelocity 0 0 -3.9968028886505635e-14
+}
+DEF SUMO_VEHICLE24 Solid {
+  translation 156.94 -9.076750565826396 0.285
+  rotation 0 0 -1 1.570796326794896
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "24"
+  linearVelocity 0 -15.15539947063985 0
+}
+DEF SUMO_VEHICLE25 Solid {
+  translation -137.1637335404656 -195.56801700444421 0.36
+  rotation 0 0 0.9999999999999999 3.781004562311131e-05
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "84"
+  linearVelocity 12.081421251132697 0.0004567990490045304 0
+  angularVelocity 0 0 1.3322676295501878e-14
+}
+DEF SUMO_VEHICLE26 Solid {
+  translation 167.69 -23.736158413971967 0.317
+  rotation 0 0 1 1.5707963267948966
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "101"
+  linearVelocity 0 14.367577025902563 0
+}
+DEF SUMO_VEHICLE27 Solid {
+  translation 139.39429463402283 92.9580719970733 0.285
+  rotation 0 0 1 2.79294846093102
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "27"
+  linearVelocity -0.026547860307175597 0.011079420466586498 0
+  angularVelocity 0 0 0.0006770252751442385
+}
+DEF SUMO_VEHICLE28 Solid {
+  translation 34.409728981579725 124.31303348816216 0.285
+  rotation 0 0 -1 1.350372245806723
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "115"
+  linearVelocity 1.6615653344656067 -8.247934378776947 0
+  angularVelocity 0 0 0.22349947492886546
+}
+DEF SUMO_VEHICLE29 Solid {
+  translation -3.1442371463967382 -53.02872874300179 0.36
+  rotation 0 0 -0.9999999999999999 0.010374439697780393
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "154"
+  linearVelocity 14.043484924862524 -0.22993571322214024 0
+  angularVelocity 0 0 0.09433962349489011
+}
+DEF SUMO_VEHICLE30 Solid {
+  translation -58.354338047144736 42.61239789487885 0.358
+  rotation 0 0 1 0.04895683361944203
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "140"
+}
+DEF SUMO_VEHICLE31 Solid {
+  translation -53.18530775559467 57.30311353692005 0.4
+  rotation 0 0 -0.9999999999999999 1.6086421256116092
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "77"
+  linearVelocity -0.9245014092849146 -3.4514885345361535 0
+  angularVelocity 0 0 -0.3188766055582537
+}
+DEF SUMO_VEHICLE32 Solid {
+  translation 107.69 52.22509748846341 0.374
+  rotation 0 0 1 1.5707963267948963
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "83"
+  linearVelocity 0 5.426164442998385 0
+}
+DEF SUMO_VEHICLE33 Solid {
+  translation 118.34270817091905 95.99216230898395 0.36
+  rotation 0 0 1 3.0923259269859584
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "32"
+}
+DEF SUMO_VEHICLE34 Solid {
+  translation 146.36170509917673 89.65107195901423 0.317
+  rotation 0 0 1 2.6124156944443913
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+    }
+  ]
+  name "35"
+  linearVelocity -0.5522847422017207 0.29682614620142544 0
+  angularVelocity 0 0 0.014961848756773755
+}
+DEF SUMO_VEHICLE35 Solid {
+  translation 172.74710084258442 56.90716415136369 0.285
+  rotation 0 0 1 1.6633648991362655
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "37"
+  linearVelocity -1.3068068434357372 12.927257822077003 0
+  angularVelocity 0 0 0.2450256415638119
+}
+DEF SUMO_VEHICLE36 Solid {
+  translation -50.30107828019973 -20.229259009147285 0.285
+  rotation 0 0 -1 1.23975107830243
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "153"
+  linearVelocity 5.115398341381869 -14.46831351676046 0
+  angularVelocity 0 0 0.3458605556617744
+}
+DEF SUMO_VEHICLE37 Solid {
+  translation -179.21244334669282 -195.56960686794264 0.36
+  rotation 0 0 1 3.781004562311131e-05
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "39"
+  linearVelocity 12.967185687315919 0.0004902898399450351 0
+}
+DEF SUMO_VEHICLE38 Solid {
+  translation 132.51671606321312 94.82386272101297 0.4
+  rotation 0 0 1 2.95864400812636
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "88"
+  linearVelocity -0.004889540324626296 0.0009848796950961969 0
+  angularVelocity 0 0 0.00011977973400689734
+}
+DEF SUMO_VEHICLE39 Solid {
+  translation -238.06 49.39897350891084 0.317
+  rotation 0 0 -1 1.5707963267948966
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "91"
+  linearVelocity 0 -13.410245075847058 0
+}
+DEF SUMO_VEHICLE40 Solid {
+  translation -212.6479526058879 226.8337415850226 0.358
+  rotation 0 0 -1 2.562241294789688
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "108"
+  linearVelocity -12.547062984675108 -8.324688665375817 0
+  angularVelocity 0 0 0.2860179100145377
+}
+DEF SUMO_VEHICLE41 Solid {
+  translation 69.5327924413795 90.96486554606798 0.374
+  rotation 0 0 -1 0.1626692629762429
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+    }
+  ]
+  name "95"
+  linearVelocity 0.0003782355049253283 -7.619989567331231e-05 0
+  angularVelocity 0 0 8.006575509256209e-06
+}
+DEF SUMO_VEHICLE42 Solid {
+  translation -208.62157333673608 235.00700600933655 0.285
+  rotation 0 0 -1 2.7348837806407484
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "69"
+  linearVelocity -12.853800780098796 -5.43155543345236 0
+  angularVelocity 0 0 0.2964667325749559
+}
+DEF SUMO_VEHICLE43 Solid {
+  translation 10000 430 0.5
+  rotation 0 0 1 3.141592653589793
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+    }
+  ]
+  name "SUMO vehicle 43"
+}
+DEF SUMO_VEHICLE44 Solid {
+  translation 36.94 -31.355738033820455 0.358
+  rotation 0 0 -1 1.5707963267948963
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "142"
+  linearVelocity 0 -1.390468911817777 0
+}
+DEF SUMO_VEHICLE45 Solid {
+  translation -64.21480351235178 233.69506498615482 0.358
+  rotation 0 0 1 3.1415532633517134
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "49"
+  linearVelocity -13.890471782327545 0.0005471490047170846 0
+  angularVelocity 0 0 4.440892098500626e-15
+}
+DEF SUMO_VEHICLE46 Solid {
+  translation 50.244358589256436 99.3193845270548 0.374
+  rotation 0 0 -1 0.6488136133889989
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "113"
+  linearVelocity 0.007533123611693782 -0.00621309013055793 0
+  angularVelocity 0 0 0.00023888649660630534
+}
+DEF SUMO_VEHICLE47 Solid {
+  translation 45.00709650362114 104.08463520782733 0.374
+  rotation 0 0 -1 0.8177573910832775
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "120"
+  linearVelocity 0.009949352793476862 -0.010024886751338613 0
+  angularVelocity 0 0 0.00033991412542455635
+}
+DEF SUMO_VEHICLE48 Solid {
+  translation 156.5490187568018 -141.31310068516075 0.4
+  rotation 0 0 1 1.079390565372582
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "138"
+  linearVelocity 6.669829290260054 12.43558060013797 0
+  angularVelocity 0 0 0.3086743288986993
+}
+DEF SUMO_VEHICLE49 Solid {
+  translation -232.69 59.38296260314438 0.36
+  rotation 0 0 -1 1.5707963267948961
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "62"
+  linearVelocity 0 -15.650430814162773 0
+}
+DEF SUMO_VEHICLE50 Solid {
+  translation 143.90171145818746 -141.62269527057342 0.317
+  rotation 0 0 -1 2.131022553257167
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "147"
+  linearVelocity -8.709929833948706 -13.12517230490812 0
+  angularVelocity 0 0 -0.3237824075853801
+}
+DEF SUMO_VEHICLE51 Solid {
+  translation 102.31 135.4166079604365 0.358
+  rotation 0 0 -1 1.5707963267948968
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "137"
+  linearVelocity 0 -13.750656797737406 0
+}
+DEF SUMO_VEHICLE52 Solid {
+  translation -238.06 -54.424593536393 0.374
+  rotation 0 0 -1 1.5707963267948966
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "65"
+  linearVelocity 0 -14.341541226276744 0
+}
+DEF SUMO_VEHICLE53 Solid {
+  translation 13.629547298235975 -42.31 0.36
+  rotation 0 0 -1 3.141592653589793
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "68"
+  linearVelocity -13.895395654146796 0 0
+}
+DEF SUMO_VEHICLE54 Solid {
+  translation -191.88836186418712 223.14125293326688 0.4
+  rotation 0 0 -1 0.11743727046901009
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "160"
+  linearVelocity 1.2625576142667683 6.426987284518617 0
+  angularVelocity 0 0 -2.9999999999999982
+}
+DEF SUMO_VEHICLE55 Solid {
+  translation 91.6489999312247 90.31 0.4
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "72"
+}
+DEF SUMO_VEHICLE56 Solid {
+  translation 106.86705116218627 82.16211394923853 0.36
+  rotation 0 0 1 1.958860561621302
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "70"
+}
+DEF SUMO_VEHICLE57 Solid {
+  translation 146.03694517742954 -156.8575824995031 0.358
+  rotation 0 0 1 0.8694261088180262
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "74"
+  linearVelocity 8.476881987077576 10.293624552766547 0
+  angularVelocity 0 0 0.28398236209630223
+}
+DEF SUMO_VEHICLE58 Solid {
+  translation 53.139046972850764 -63.13859908603945 0.36
+  rotation 0 0 0.9999999999999999 1.5219824332683507
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "158"
+  linearVelocity 0.3199185542304406 6.54863586008247 0
+  angularVelocity 0 0 -7.549516567451064e-14
+}
+DEF SUMO_VEHICLE59 Solid {
+  translation 96.45044061440417 195.229617899533 0.358
+  rotation 0 0 -1 1.430257600196638
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "131"
+  linearVelocity 1.6855187234152424 -12.882546601812377 0
+  angularVelocity 0 0 -0.4202916121786204
+}
+DEF SUMO_VEHICLE60 Solid {
+  translation -40.922540873892615 88.33723562721953 0.374
+  rotation 0 0 0.9999999999999999 2.0452176441021668
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "144"
+  linearVelocity -2.5 13.320004270098593 0
+  angularVelocity 0 0 -0.22313898662583043
+}
+DEF SUMO_VEHICLE61 Solid {
+  translation -71.8183191933943 -179.4455461231593 0.285
+  rotation 0 0 -1 3.141554842117147
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "92"
+  linearVelocity -12.986648712003444 -0.0004910443041694634 0
+  angularVelocity 0 0 4.440892098500626e-15
+}
+DEF SUMO_VEHICLE62 Solid {
+  translation 76.61448613848155 90.36496322107514 0.374
+  rotation 0 0 -1 0.021987059924248053
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+    }
+  ]
+  name "97"
+  linearVelocity 3.8595031668364754e-05 -9.913643594927635e-07 0
+  angularVelocity 0 0 3.966416217693336e-07
+}
+DEF SUMO_VEHICLE63 Solid {
+  translation -31.22436953335549 173.90764552860256 0.36
+  rotation 0 0 -1 2.5538981249666155
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "123"
+  linearVelocity -12.177454157866377 -8.18803404393023 0
+  angularVelocity 0 0 0.2650323559706891
+}
+DEF SUMO_VEHICLE64 Solid {
+  translation 62.67714939594228 92.68530260533412 0.358
+  rotation 0 0 -1 0.3240233172500715
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "102"
+  linearVelocity 0.0016831083587476314 -0.0005160233761358768 0
+  angularVelocity 0 0 4.264945687726396e-05
+}
+DEF SUMO_VEHICLE65 Solid {
+  translation -134.89408677571672 -179.44793111077914 0.4
+  rotation 0 0 -1 3.141554842117147
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.1 0.15 0.18
+      recognitionColors [
+        0.1 0.15 0.18
+      ]
+    }
+  ]
+  name "99"
+  linearVelocity -13.432820414313085 -0.000507914712954971 0
+  angularVelocity 0 0 -4.440892098500626e-15
+}
+DEF SUMO_VEHICLE66 Solid {
+  translation -208.73809302277573 219.7708718086193 0.4
+  rotation 0 0 1 1.358246840587748
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "103"
+  linearVelocity 11.724128455106495 9.63936452804262 0
+  angularVelocity 0 0 -0.5945741708221375
+}
+DEF SUMO_VEHICLE67 Solid {
+  translation -238.06 -95.48918569301111 0.358
+  rotation 0 0 -1 1.5707963267948966
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "143"
+  linearVelocity 0 -13.937693949815184 0
+}
+DEF SUMO_VEHICLE68 Solid {
+  translation 76.66017292369804 84.99325637815633 0.358
+  rotation 0 0 -1 0.020835491414014754
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "135"
+  linearVelocity 0.05555081718036092 -0.0013575397390042099 0
+  angularVelocity 0 0 0.0006293500647425176
+}
+DEF SUMO_VEHICLE69 Solid {
+  translation -101.9933064583153 -68.1581615626511 0.358
+  rotation 0 0 1 1.6640028317097872
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "150"
+  linearVelocity -1.2714816461530631 14.16367351111738 0
+  angularVelocity 0 0 -0.297532739269597
+}
+DEF SUMO_VEHICLE70 Solid {
+  translation -21.800441497200673 233.69339427429384 0.36
+  rotation 0 0 1 3.1415532633517134
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "117"
+  linearVelocity -13.135818182272915 0.0005174230189197715 0
+  angularVelocity 0 0 6.217248937900877e-14
+}
+DEF SUMO_VEHICLE71 Solid {
+  translation -211.04421382196142 207.00516127749685 0.317
+  rotation 0 0 1 0.9873228937078086
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "119"
+  linearVelocity 7.863284511082185 11.911465304619071 0
+  angularVelocity 0 0 3.552713678800501e-14
+}
+DEF SUMO_VEHICLE72 Solid {
+  translation -36.94 21.595514744133748 0.374
+  rotation 0 0 1 1.5707963267948966
+  children [
+    BmwX5Simple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "121"
+  linearVelocity 0 10.407805936700925 0
+}
+DEF SUMO_VEHICLE73 Solid {
+  translation -238.06 115.61888941679501 0.317
+  rotation 0 0 -1 1.5707963267948966
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.14 0.29 0.16
+      recognitionColors [
+        0.14 0.29 0.16
+      ]
+    }
+  ]
+  name "122"
+  linearVelocity 0 -13.82832049632924 0
+}
+DEF SUMO_VEHICLE74 Solid {
+  translation 107.69 75.14797948901264 0.317
+  rotation 0 0 1 1.5707963267948961
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "124"
+}
+DEF SUMO_VEHICLE75 Solid {
+  translation -102.31 -36.86676083765071 0.317
+  rotation 0 0 1 1.5707963267948961
+  children [
+    ToyotaPriusSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "162"
+  linearVelocity 0 9.840568374765866 0
+}
+DEF SUMO_VEHICLE76 Solid {
+  translation -144.41389577897453 239.06822404757472 0.36
+  rotation 0 0 1 3.1415532633517134
+  children [
+    TeslaModel3Simple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "134"
+  linearVelocity -13.33082734884215 0.00052510447673626 0
+  angularVelocity 0 0 7.105427357601002e-14
+}
+DEF SUMO_VEHICLE77 Solid {
+  translation 84.21491801967568 84.94 0.285
+  children [
+    CitroenCZeroSimple {
+      translation -2.85 0 0
+    }
+  ]
+  name "128"
+}
+DEF SUMO_VEHICLE78 Solid {
+  translation -53.06 22.095434817054294 0.358
+  rotation 0 0 -1 1.5707963267948966
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.43 0.11 0.1
+      recognitionColors [
+        0.43 0.11 0.1
+      ]
+    }
+  ]
+  name "164"
+  linearVelocity 0 -6.225881359255538 0
+}
+DEF SUMO_VEHICLE79 Solid {
+  translation -31.6822388097398 53.02931945142821 0.358
+  rotation 0 0 -0.9999999999999999 2.9495926535897934
+  children [
+    RangeRoverSportSVRSimple {
+      translation -2.85 0 0
+      color 0.18 0.28 0.64
+      recognitionColors [
+        0.18 0.28 0.64
+      ]
+    }
+  ]
+  name "148"
+  linearVelocity -0.5198147713319123 -0.47938357143429755 0
+  angularVelocity 0 0 2.9999999999999982
+}
+DEF SUMO_VEHICLE80 Solid {
+  translation 107.69 67.64696136887653 0.4
+  rotation 0 0 1 1.5707963267948961
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.18 0.5 0.72
+      recognitionColors [
+        0.18 0.5 0.72
+      ]
+    }
+  ]
+  name "136"
+}
+DEF SUMO_VEHICLE81 Solid {
+  translation -221.94 -41.97767822896905 0.358
+  rotation 0 0 1 1.5707963267948961
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.72 0.52 0.18
+      recognitionColors [
+        0.72 0.52 0.18
+      ]
+    }
+  ]
+  name "151"
+  linearVelocity 0 12.55596184829102 0
+}
+DEF SUMO_VEHICLE82 Solid {
+  translation 114.47021698303972 103.04514349840976 0.358
+  rotation 0 0 0.9999999999999999 2.134822657340635
+  children [
+    LincolnMKZSimple {
+      translation -2.85 0 0
+      color 0.62 0.62 0.62
+      recognitionColors [
+        0.62 0.62 0.62
+      ]
+    }
+  ]
+  name "156"
+  linearVelocity -3.3711878177361854 3.305242895035576 0
+  angularVelocity 0 0 -1.721975598799368
+}
+DEF SUMO_VEHICLE83 Solid {
+  translation -233.43583800088632 -167.44196172928312 0.4
+  rotation 0 0 -1 1.136803203346584
+  children [
+    MercedesBenzSprinterSimple {
+      translation -2.85 0 0
+      color 0.85 0.85 0.05
+      recognitionColors [
+        0.85 0.85 0.05
+      ]
+    }
+  ]
+  name "163"
+  linearVelocity 3.7022974097959604 -7.91311001537963 0
+  angularVelocity 0 0 0.20963811740569938
 }
